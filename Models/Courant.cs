@@ -20,13 +20,9 @@ public class Courant
             Console.WriteLine("Solde insuffisant pour le retrait.");
             return;
         }
-
         Solde -= value;
         Console.WriteLine($"{value} € a bien été retiré de votre compte.");
         Console.WriteLine($"Nouveau solde : {Solde} €");
-        return;
-
-
     }
     public void Depot(double value)
     {
@@ -37,6 +33,5 @@ public class Courant
         }
         Solde += value;
         Console.WriteLine($"Nouveau solde : {Solde} €");
-        return;
     }
 }
