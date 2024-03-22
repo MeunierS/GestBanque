@@ -9,18 +9,18 @@ namespace Models
 {
     public class Banque
     {
-        private string _Nom;
+        private string _NomBanque;
         private Dictionary<string, Courant> _Comptes = new Dictionary<string, Courant>();
-        public string Nom
+        public string NomBanque
         {
             get
             {
-                return _Nom;
+                return _NomBanque;
             }
 
             set
             {
-                _Nom = value;
+                _NomBanque = value;
             }
         }
 
