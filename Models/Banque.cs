@@ -48,5 +48,18 @@ namespace Models
             }
             _Comptes.Remove(cle);
         }
+
+        public double AvoirDesComptes(string titulaire)
+        {
+            double avoir = 0;
+            foreach (string s in _Comptes)
+            {
+                if (_Comptes[s].Titulaire == titulaire)
+                {
+                    avoir += _Comptes[item].Solde;
+                }
+            }
+            return avoir;
+        }
     }
 }

@@ -91,4 +91,27 @@ public class Courant
         Console.WriteLine($"Nouveau solde : {Solde}.");
         return;
     }
+    public static double operator +(Courant c1, Courant c2)
+    {
+        double temp1, temp2;
+        if (c1.Solde < 0)
+        {
+            temp1 = 0;
+            
+        }
+        else
+        {
+            temp1= c1.Solde;
+        }
+        if (c2.Solde < 0)
+        {
+            temp2 = 0;
+
+        }
+        else
+        {
+            temp2 = c2.Solde;
+        }
+        return temp1 + temp2;
+    }
 }
