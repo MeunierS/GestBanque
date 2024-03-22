@@ -88,7 +88,7 @@ public class Courant
             return;
         }
         Solde += value;
-        Console.WriteLine($"Nouveau solde : {Solde} €");
+        Console.WriteLine($"Nouveau solde : {Solde}.");
         return;
     }
 }
