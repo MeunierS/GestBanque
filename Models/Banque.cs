@@ -34,19 +34,9 @@ namespace Models
                 }
                 return _Comptes[key];
             }
-
-            set
-            {
-                _Comptes[key] = value;
-            }
         }
         public void Ajouter(Courant compte)
         {
-            if (_Comptes.ContainsKey(compte.CompteId))
-            {
-                Console.WriteLine("Compte déjà existant.");
-                return;
-            }
             _Comptes.Add(compte.CompteId, compte);
         }
         public void Supprimer(string cle) 
