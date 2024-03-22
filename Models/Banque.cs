@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,13 +24,15 @@ namespace Models
             }
         }
 
-        public Courant this[string key]
+        public Courant? this[string key]
         {
             get
             {
-                Courant courant;
-                _Comptes.TryGetValue(key, out courant);
-                return courant;
+                if (!_Comptes.ContainsKey(key))
+                {
+                    return null;
+                }
+                return _Comptes[key];
             }
 
             set
@@ -37,13 +40,22 @@ namespace Models
                 _Comptes[key] = value;
             }
         }
-
         public void Ajouter(Courant compte)
         {
+            if (_Comptes.ContainsKey(compte.CompteId))
+            {
+                Console.WriteLine("Compte déjà existant.");
+                return;
+            }
             _Comptes.Add(compte.CompteId, compte);
         }
         public void Supprimer(string cle) 
         {
+            if (!_Comptes.ContainsKey(cle))
+            {
+                Console.WriteLine("Le compte a supprimé n'existe pas.");
+                return;
+            }
             _Comptes.Remove(cle);
         }
     }
