@@ -6,7 +6,13 @@ public class Epargne : Compte
     
     public override void Retrait(double value)
     {
+        double OldSolde = Solde;
         base.Retrait(value);
-        dernierRetrait = new DateTime();
+
+        if (Solde != OldSolde)
+        {
+            dernierRetrait = DateTime.Now;
+        }
     }
+    
 }
