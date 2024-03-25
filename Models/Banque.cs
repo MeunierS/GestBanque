@@ -49,14 +49,14 @@ namespace Models
             _Comptes.Remove(cle);
         }
 
-        public double AvoirDesComptes(string titulaire)
+        public double AvoirDesComptes(Personne titulaire)
         {
             double avoir = 0;
-            foreach (string s in _Comptes)
+            foreach (KeyValuePair<string, Courant> item in _Comptes)
             {
-                if (_Comptes[s].Titulaire == titulaire)
+                if (item.Value.Titulaire == titulaire)
                 {
-                    avoir += _Comptes[item].Solde;
+                    avoir += item.Value.Solde;
                 }
             }
             return avoir;
