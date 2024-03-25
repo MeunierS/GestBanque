@@ -57,7 +57,7 @@ namespace Models
             {
                 if (item.Value.Titulaire == titulaire)
                 {
-                    avoir += item.Value.Solde;
+                    avoir += item.Value;
                 }
             }
             return avoir;
