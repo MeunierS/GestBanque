@@ -12,7 +12,9 @@ namespace Models
 
         public static explicit operator Celsius(Fahrenheit fahrenheit)
         {
-            return (fahrenheit.Temperature -32) / 1.8;
+            Celsius celsius = new Celsius();
+            celsius.Temperature = (fahrenheit.Temperature - 32) / 1.8;
+            return celsius;
         }
     }
 }

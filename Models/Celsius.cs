@@ -12,7 +12,9 @@ namespace Models
 
         public static implicit operator Fahrenheit (Celsius celsius)
         {
-            return celsius.Temperature*1.8 +32;
+            Fahrenheit fahrenheit = new Fahrenheit ();
+            fahrenheit.Temperature = celsius.Temperature * 1.8 + 32;
+            return fahrenheit;
         }
     }
 }
