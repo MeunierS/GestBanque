@@ -10,7 +10,7 @@ namespace Models
     public class Banque
     {
         private string _NomBanque;
-        private Dictionary<string, Courant> _Comptes = new Dictionary<string, Courant>();
+        private Dictionary<string, Compte> _Comptes = new Dictionary<string, Compte>();
         public string NomBanque
         {
             get
@@ -24,7 +24,7 @@ namespace Models
             }
         }
 
-        public Courant? this[string key]
+        public Compte? this[string key]
         {
             get
             {
@@ -35,7 +35,7 @@ namespace Models
                 return _Comptes[key];
             }
         }
-        public void Ajouter(Courant compte)
+        public void Ajouter(Compte compte)
         {
             _Comptes.Add(compte.CompteId, compte);
         }
@@ -53,7 +53,7 @@ namespace Models
         {
             double avoir = 0D;
 
-            foreach (KeyValuePair<string, Courant> item in _Comptes)
+            foreach (KeyValuePair<string, Compte> item in _Comptes)
             {
                 if (item.Value.Titulaire == titulaire)
                 {
