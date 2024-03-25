@@ -13,7 +13,6 @@ public class Courant
         {
             return _CompteId;
         }
-
         set
         {
             _CompteId = value;
@@ -26,7 +25,6 @@ public class Courant
         {
             return _LigneDeCredit;
         }
-
         set
         {
             if (value < 0)
@@ -44,7 +42,6 @@ public class Courant
         {
             return _Titulaire;
         }
-
         set
         {
             _Titulaire = value;
@@ -57,7 +54,6 @@ public class Courant
         {
             return _Solde;
         }
-
         private set
         {
             _Solde = value;
@@ -91,27 +87,20 @@ public class Courant
         Console.WriteLine($"Nouveau solde : {Solde}.");
         return;
     }
-    public static double operator +(Courant c1, Courant c2)
+    public static double operator +(double amount, Courant courant)
     {
-        double temp1, temp2;
-        if (c1.Solde < 0)
-        {
-            temp1 = 0;
-            
-        }
-        else
-        {
-            temp1= c1.Solde;
-        }
-        if (c2.Solde < 0)
-        {
-            temp2 = 0;
+        //double temp;
+        //if (courant.Solde < 0)
+        //{
+        //    temp = 0;           
+        //}
+        //else
+        //{
+        //    temp= courant.Solde;
+        //}
+        //return amount + temp;
 
-        }
-        else
-        {
-            temp2 = c2.Solde;
-        }
-        return temp1 + temp2;
+        return (amount < 0 ? 0 : amount) + (courant.Solde < 0 ? 0 : courant.Solde);
+
     }
 }

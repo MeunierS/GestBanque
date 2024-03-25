@@ -8,7 +8,7 @@ namespace Models
 {
     public class Fahrenheit
     {
-        public double Temperature;
+        public double Temperature { get; set; }
 
         public static explicit operator Celsius(Fahrenheit fahrenheit)
         {

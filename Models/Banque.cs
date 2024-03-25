@@ -51,7 +51,8 @@ namespace Models
 
         public double AvoirDesComptes(Personne titulaire)
         {
-            double avoir = 0;
+            double avoir = 0D;
+
             foreach (KeyValuePair<string, Courant> item in _Comptes)
             {
                 if (item.Value.Titulaire == titulaire)
