@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Models;
 
-public class Compte
+public abstract class Compte
 {
     private string _CompteId;
     private Personne _Titulaire;
@@ -93,4 +93,11 @@ public class Compte
         Console.WriteLine($"{value} a bien été retiré de votre compte.");
         Console.WriteLine($"Nouveau solde : {Solde}.");
     }
+    protected abstract double CalculInteret();
+
+    public void AppliquerInteret()
+    {
+        Solde += CalculInteret();
+    }
+  
 }
