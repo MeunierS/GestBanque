@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Models;
 
-public abstract class Compte
+public abstract class Compte : IBanker, ICustomer
 {
     private string _CompteId;
     private Personne _Titulaire;
@@ -101,3 +101,4 @@ public abstract class Compte
     }
   
 }
+
