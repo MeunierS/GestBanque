@@ -37,6 +37,21 @@ namespace Models
         }
         public void Ajouter(Compte compte)
         {
+            Console.WriteLine("Type de compte à ajouter ? 0 pour courant, 1 pour épargne");
+            int choix = int.Parse(Console.ReadLine()!);
+            if (choix == 0)
+            {
+                compte = (Courant)compte;
+            }
+            else if (choix == 1)
+            {
+                compte = (Epargne)compte;
+            }
+            else
+            {
+                Console.WriteLine("Choix incorrect");
+                return;
+            }
             _Comptes.Add(compte.CompteId, compte);
         }
         public void Supprimer(string cle) 
