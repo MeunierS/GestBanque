@@ -9,7 +9,7 @@ namespace Models
 {
     public class Banque
     {
-        private string _NomBanque {  get; init; }
+        private string _NomBanque { get; init; }
         private Dictionary<string, Compte> _Comptes = new Dictionary<string, Compte>();
 
         public Compte? this[string key]
@@ -49,6 +49,10 @@ namespace Models
                 }
             }
             return avoir;
+        }
+        public Banque(string nomBanque)
+        {
+            this._NomBanque = nomBanque;
         }
     }
 }
