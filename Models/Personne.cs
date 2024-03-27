@@ -8,8 +8,8 @@ public class Personne
 
     public Personne(string nom, string prenom, DateTime dateNaiss)
     {
-        this.Nom = nom;
-        this.Prenom = prenom;
-        this.DateNaiss = dateNaiss;
+        Nom = nom;
+        Prenom = prenom;
+        DateNaiss = dateNaiss;
     }
 }

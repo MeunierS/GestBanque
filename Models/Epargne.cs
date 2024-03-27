@@ -22,4 +22,8 @@ public class Epargne : Compte
     {
         
     }
+    public Epargne(string CompteId, Personne Titulaire, DateTime dernierRetrait) : base(CompteId, Titulaire)
+    {
+        this.dernierRetrait = dernierRetrait;
+    }
 }

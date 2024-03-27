@@ -31,8 +31,15 @@ public class Courant : Compte
         }
         return Solde * 3 / 100;
     }
-    public Courant(string CompteId, Personne Titulaire, double LigneDeCredit) : base(CompteId, Titulaire)
+    public Courant(string compteId, Personne Titulaire) : base(compteId, Titulaire)
     {
-        this.LigneDeCredit=LigneDeCredit;
+    }
+
+    public Courant(string compteId, Personne titulaire, double solde) : base(compteId, titulaire, solde)
+    {
+    }
+    public Courant(double ligneDeCredit,string compteId, Personne titulaire) : base(compteId, titulaire)
+    {
+        _LigneDeCredit=ligneDeCredit;
     }
 }

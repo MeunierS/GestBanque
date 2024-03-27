@@ -102,15 +102,14 @@ public abstract class Compte : IBanker, ICustomer
 
     public Compte(string compteId, Personne titulaire)
     {
-        this._Titulaire = titulaire;
-        this._CompteId = compteId;
-        this._Solde = 0D;
+        _Titulaire = titulaire;
+        _CompteId = compteId;
+        _Solde = 0D;
     }
-    public Compte(string compteId, Personne titulaire, double solde)
+    public Compte(string compteId, Personne titulaire, double solde) : this(compteId, titulaire)
     {
-        this._Titulaire = titulaire;
-        this._CompteId = compteId;
-        this.Solde = solde;
+
+        Solde = solde;
     }
 }
 
