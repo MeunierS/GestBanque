@@ -2,7 +2,7 @@
 
 public class Epargne : Compte
 {
-    private DateTime dernierRetrait { get; set; }
+    public DateTime dernierRetrait { get; private set; }
     
     public override void Retrait(double value)
     {
@@ -18,5 +18,8 @@ public class Epargne : Compte
     {
         return Solde * 4.5 / 100;
     }
-
+    public Epargne(string CompteId, Personne Titulaire) : base(CompteId, Titulaire)
+    {
+        
+    }
 }

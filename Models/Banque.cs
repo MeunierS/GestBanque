@@ -9,20 +9,8 @@ namespace Models
 {
     public class Banque
     {
-        private string _NomBanque;
+        private string _NomBanque {  get; init; }
         private Dictionary<string, Compte> _Comptes = new Dictionary<string, Compte>();
-        public string NomBanque
-        {
-            get
-            {
-                return _NomBanque;
-            }
-
-            set
-            {
-                _NomBanque = value;
-            }
-        }
 
         public Compte? this[string key]
         {

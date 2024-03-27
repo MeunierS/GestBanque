@@ -29,7 +29,7 @@ public abstract class Compte : IBanker, ICustomer
         {
             return _CompteId;
         }
-        set
+        private set
         {
             _CompteId = value;
         }
@@ -40,7 +40,7 @@ public abstract class Compte : IBanker, ICustomer
         {
             return _Titulaire;
         }
-        set
+        private set
         {
             _Titulaire = value;
         }
@@ -99,6 +99,17 @@ public abstract class Compte : IBanker, ICustomer
     {
         Solde += CalculInteret();
     }
-  
+
+    public Compte(string compteId, Personne titulaire)
+    {
+        this.Titulaire = titulaire;
+        this.CompteId = compteId;
+    }
+    public Compte(string compteId, Personne titulaire, double solde)
+    {
+        this.Titulaire = titulaire;
+        this.CompteId = compteId;
+        this.Solde = solde;
+    }
 }
 

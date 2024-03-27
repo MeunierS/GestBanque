@@ -9,7 +9,7 @@ public class Courant : Compte
         {
             return _LigneDeCredit;
         }
-        set
+        private set
         {
             if (value < 0)
             {
@@ -30,5 +30,9 @@ public class Courant : Compte
             return Solde * 9.75 / 100;
         }
         return Solde * 3 / 100;
+    }
+    public Courant(string CompteId, Personne Titulaire, double LigneDeCredit) : base(CompteId, Titulaire)
+    {
+        this.LigneDeCredit=LigneDeCredit;
     }
 }
