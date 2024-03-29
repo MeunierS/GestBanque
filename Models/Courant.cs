@@ -13,8 +13,9 @@ public class Courant : Compte
         {
             if (value < 0)
             {
-                Console.WriteLine("La ligne de Crédit doit être strictement positive !");
-                return;
+                //Console.WriteLine("La ligne de Crédit doit être strictement positive !");
+                //return;
+                throw new InvalidOperationException("Valeur non supérieur ou égale à zéro");
             }
             _LigneDeCredit = value;
         }

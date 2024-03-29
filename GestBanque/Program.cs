@@ -6,10 +6,15 @@ class Program
 {
     static void Main(string[] args)
     {
-        //Exo 07 part 4
-        // rajouter  LigneDeCredit {get & set} à IBanker
-        // Compte à un virtual LigneDeCredit
-        // override LigneDeCredit ds Courant
-        //profit !
+		try
+		{
+
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine(ex.GetType());
+			Console.WriteLine(ex.Message);			
+		}
+
     }
 }
