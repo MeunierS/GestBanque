@@ -8,7 +8,7 @@ namespace Models;
 public abstract class Compte : IBanker, ICustomer
 {
 
-    public event PassageEnNegatifDelegate? PassageEnNegatifEvent;
+    public event Action<Compte>? PassageEnNegatifEvent;
 
     private string _CompteId;
     private Personne _Titulaire;
