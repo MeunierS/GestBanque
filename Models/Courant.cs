@@ -1,7 +1,7 @@
 ﻿namespace Models;
 
 public class Courant : Compte
-{
+{    
     private double _LigneDeCredit;
     public double LigneDeCredit
     {
@@ -22,8 +22,18 @@ public class Courant : Compte
     }
     public override void Retrait(double value)
         {
+            bool negatif = false;
+            if(Solde < 0)
+            {
+                negatif = true;
+            }
             Retrait(value, LigneDeCredit);
-        }
+            if (Solde < 0 && !negatif)
+            {
+                AppelEventNegatif();
+            }
+
+    }
     protected override double CalculInteret()
     {
         if (Solde < 0)

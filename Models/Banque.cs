@@ -25,8 +25,15 @@ namespace Models
         }
         public void Ajouter(Compte compte)
         {
+            compte.PassageEnNegatifEvent += PassageEnNegatifAction;
             _Comptes.Add(compte.CompteId, compte);
         }
+
+        private void PassageEnNegatifAction(Compte compte)
+        {
+            Console.WriteLine($"Attention ! Le compte {compte.CompteId} vient de passer en négatif !");
+        }
+
         public void Supprimer(string cle) 
         {
             if (!_Comptes.ContainsKey(cle))
@@ -34,6 +41,7 @@ namespace Models
                 Console.WriteLine("Le compte a supprimé n'existe pas.");
                 return;
             }
+            _Comptes[cle].PassageEnNegatifEvent -= PassageEnNegatifAction;
             _Comptes.Remove(cle);
         }
 

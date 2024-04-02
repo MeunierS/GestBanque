@@ -5,9 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Models;
-
 public abstract class Compte : IBanker, ICustomer
 {
+
+    public event PassageEnNegatifDelegate? PassageEnNegatifEvent;
+
     private string _CompteId;
     private Personne _Titulaire;
     private double _Solde;
@@ -45,7 +47,7 @@ public abstract class Compte : IBanker, ICustomer
             _Titulaire = value;
         }
     }
-    
+
     public virtual void Retrait(double value)
     {
         Retrait(value, 0D);
@@ -104,7 +106,6 @@ public abstract class Compte : IBanker, ICustomer
     {
         Solde += CalculInteret();
     }
-
     public Compte(string compteId, Personne titulaire)
     {
         _Titulaire = titulaire;
@@ -115,6 +116,10 @@ public abstract class Compte : IBanker, ICustomer
     {
 
         Solde = solde;
+    }
+    protected void AppelEventNegatif()
+    {
+        PassageEnNegatifEvent?.Invoke(this);
     }
 }
 
