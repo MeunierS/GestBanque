@@ -119,7 +119,8 @@ public abstract class Compte : IBanker, ICustomer
     }
     protected void AppelEventNegatif()
     {
-        PassageEnNegatifEvent?.Invoke(this);
+        Action<Compte>? passageEnNegatifEvent = PassageEnNegatifEvent;
+        passageEnNegatifEvent?.Invoke(this);
     }
 }
 
