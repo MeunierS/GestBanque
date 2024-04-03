@@ -14,7 +14,7 @@ namespace TestGestBanque
         {
             //Arrange
             //Act
-            NullReferenceException exception = Assert.Throws<NullReferenceException>(() => new Personne(nom, prenom, new DateTime(1970, 1, 1)));
+            ArgumentNullException exception = Assert.Throws<ArgumentNullException>(() => new Personne(nom, prenom, new DateTime(1970, 1, 1)));
             //Assert
         }
         [Fact]

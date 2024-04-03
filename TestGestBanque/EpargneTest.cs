@@ -51,6 +51,16 @@ namespace TestGestBanque
             //Assert
         }
         [Fact]
+        public void TestRetrait0()
+        {
+            //Arrange
+            Personne doe = new Personne("Doe", "John", DateTime.Now);
+            Epargne test = new Epargne("0001", doe);
+            //Act
+            ArgumentOutOfRangeException exception = Assert.Throws<ArgumentOutOfRangeException>(() => test.Retrait(0));
+            //Assert
+        }
+        [Fact]
         public void TestRetraitPositif()
         {
             //Arrange

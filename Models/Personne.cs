@@ -10,11 +10,11 @@ public class Personne
     {
         if (nom is null)
         {
-            throw new NullReferenceException("Nom est NULL.");
+            throw new ArgumentNullException("Nom est NULL.");
         }
         if (prenom is null)
         {
-            throw new NullReferenceException("Prenom est NULL.");
+            throw new ArgumentNullException("Prenom est NULL.");
         }
         Nom = nom;
         Prenom = prenom;

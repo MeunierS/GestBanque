@@ -9,7 +9,7 @@ namespace Models
 {
     public class Banque
     {
-        private string _NomBanque { get; init; }
+        public string _NomBanque { get; init; }
         private Dictionary<string, Compte> _Comptes;
 
         public Compte? this[string key]
@@ -25,6 +25,14 @@ namespace Models
         }
         public void Ajouter(Compte compte)
         {
+            if (compte is null)
+            {
+                throw new ArgumentNullException("Compte est null.");
+            }
+            if (_Comptes.ContainsKey(compte.CompteId))
+            {
+                throw new ArgumentNullException("Compte déjà existant");
+            }
             _Comptes.Add(compte.CompteId, compte);
             compte.PassageEnNegatifEvent += PassageEnNegatifAction;
         }
@@ -40,7 +48,7 @@ namespace Models
             {
                 //Console.WriteLine("Le compte a supprimé n'existe pas.");
                 //return;
-                throw new NullReferenceException("Le compte a supprimé n'existe pas.");
+                throw new ArgumentNullException("Le compte a supprimé n'existe pas.");
             }
             Compte compte = this[cle]!;
             compte.PassageEnNegatifEvent -= PassageEnNegatifAction;
@@ -64,7 +72,7 @@ namespace Models
         {
             if (nomBanque is null)
             {
-                throw new NullReferenceException("Nom de banque est NULL.");
+                throw new ArgumentNullException("Nom de banque est NULL.");
             }
             _NomBanque = nomBanque;
             _Comptes = new Dictionary<string, Compte>();

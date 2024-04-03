@@ -50,6 +50,28 @@ namespace TestGestBanque
             //Assert
         }
         [Fact]
+        public void TestRetrait0()
+        {
+            //Arrange
+            Personne doe = new Personne("Doe", "John", DateTime.Now);
+            Courant test = new Courant(500, "0001", doe);
+            //Act
+            ArgumentOutOfRangeException exception = Assert.Throws<ArgumentOutOfRangeException>(() => test.Retrait(0));
+            //Assert
+        }
+        [Fact]
+        public void TestRetraitDejaEnNegatif()
+        {
+            //Arrange
+            Personne doe = new Personne("Doe", "John", DateTime.Now);
+            Courant test = new Courant(500, "0001", doe);
+            test.Retrait(100);
+            //Act
+            test.Retrait(100);
+            //Assert
+            Assert.Equal(-200, test.Solde);
+        }
+        [Fact]
         public void TestRetraitPositif()
         {
             //Arrange

@@ -1,44 +1,40 @@
 Tests à réaliser:
 
 Personne:
-	-ajout personne normal
-	-nom null
-	-prenom null
-	-date de naissance null
-	-date de naissance dans le futur
-	-date de naissance dans un passé lointain (200+ans)
+	-ajout personne normal							OK !
+	-nom null										OK !
+	-prenom null									OK !
+	-nom & prenom null								OK !
 
 Banque:
-	-ajout compte normal
-	-ajout compte null
-	-ajout compte deja existant
-	-ajout banque normal
-	-ajout banque null
-	-supression compte existant
-	-supression compte null
-	-supression compte inexistant
+	-ajout compte normal							OK !
+	-ajout compte null								OK !
+	-ajout compte deja existant						OK !
+	-ajout banque normal							OK !
+	-ajout banque null								OK !
+	-supression compte existant						OK !
+	-supression compte null							OK !
+	-supression compte inexistant					OK !
 	
 Compte:
 	-???
 	
 Courant:
-	-depot positif
-	-depot negatif
-	-depot 0
-	-retrait positif
-	-retrait positif passe en negatif
-	-retrait positif deja en negatif
-	-retrait negatif
-	-retrait 0
-	-retrait null
-	-retrait positif depasse limite de credit
+	-depot positif									OK !
+	-depot negatif									OK !
+	-depot 0										OK !
+	-retrait positif								OK !
+	-retrait positif passe en negatif				OK !
+	-retrait positif deja en negatif				OK !
+	-retrait negatif								OK !
+	-retrait 0										OK !
+	-retrait positif depasse limite de credit		OK !
 
 Epargne:
-	-depot positif
-	-depot negatif
-	-depot 0
-	-retrait positif
-	-retrait positif passe en negatif
-	-retrait negatif
-	-retrait 0
-	-retrait null
+	-depot positif									OK !
+	-depot negatif									OK !
+	-depot 0										OK !
+	-retrait positif								OK !
+	-retrait positif passe en negatif				OK !
+	-retrait negatif								OK !
+	-retrait 0										OK !
