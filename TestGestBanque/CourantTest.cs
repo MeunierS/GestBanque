@@ -1,14 +1,13 @@
-﻿using System;
+﻿using Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Models;
-using Newtonsoft.Json.Linq;
 
 namespace TestGestBanque
 {
-    public class EpargneTest
+    public class CourantTest
     {
         [Theory]
         [InlineData(0)]
@@ -16,11 +15,11 @@ namespace TestGestBanque
         [InlineData(-1500)]
         [InlineData(-15.5936)]
         [InlineData(-0.5)]
-        public  void TestDepot0OuMoins(double value)
+        public void TestDepot0OuMoins(double value)
         {
             //Arrange
-            Personne doe= new Personne("Doe", "John", DateTime.Now);
-            Epargne test = new Epargne("0001", doe);
+            Personne doe = new Personne("Doe", "John", DateTime.Now);
+            Courant test = new Courant(500, "0001", doe);
             //Act
             ArgumentOutOfRangeException exception = Assert.Throws<ArgumentOutOfRangeException>(() => test.Depot(value));
             //Assert
@@ -34,18 +33,18 @@ namespace TestGestBanque
         {
             //Arrange
             Personne doe = new Personne("Doe", "John", DateTime.Now);
-            Epargne test = new Epargne("0001", doe);
+            Courant test = new Courant(500, "0001", doe);
             //Act
             test.Depot(value);
             //Assert
             Assert.Equal(value, test.Solde);
         }
         [Fact]
-        public void TestRetraitNegatif() 
+        public void TestRetraitNegatif()
         {
             //Arrange
             Personne doe = new Personne("Doe", "John", DateTime.Now);
-            Epargne test = new Epargne("0001", doe);
+            Courant test = new Courant(500, "0001", doe);
             //Act
             ArgumentOutOfRangeException exception = Assert.Throws<ArgumentOutOfRangeException>(() => test.Retrait(-220));
             //Assert
@@ -55,7 +54,7 @@ namespace TestGestBanque
         {
             //Arrange
             Personne doe = new Personne("Doe", "John", DateTime.Now);
-            Epargne test = new Epargne("0001", doe);
+            Courant test = new Courant(500, "0001", doe);
             test.Depot(500);
             //Act
             test.Retrait(200);
@@ -67,11 +66,22 @@ namespace TestGestBanque
         {
             //Arrange
             Personne doe = new Personne("Doe", "John", DateTime.Now);
-            Epargne test = new Epargne("0001", doe);
+            Courant test = new Courant(500, "0001", doe);
             test.Depot(500);
             //Act
-            SoldeInsuffisantException exception = Assert.Throws<SoldeInsuffisantException>(() => test.Retrait(1000));
+            SoldeInsuffisantException exception = Assert.Throws<SoldeInsuffisantException>(() => test.Retrait(2000));
             //Assert
+        }
+        [Fact]
+        public void TestRetraitMiseNegatif()
+        {
+            //Arrange
+            Personne doe = new Personne("Doe", "John", DateTime.Now);
+            Courant test = new Courant(500, "0001", doe);
+            test.Depot(500);
+            test.Retrait(800);
+            //Assert
+            Assert.Equal(-300, test.Solde);
         }
     }
 }

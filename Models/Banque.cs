@@ -38,8 +38,9 @@ namespace Models
         {
             if (!_Comptes.ContainsKey(cle))
             {
-                Console.WriteLine("Le compte a supprimé n'existe pas.");
-                return;
+                //Console.WriteLine("Le compte a supprimé n'existe pas.");
+                //return;
+                throw new NullReferenceException("Le compte a supprimé n'existe pas.");
             }
             Compte compte = this[cle]!;
             compte.PassageEnNegatifEvent -= PassageEnNegatifAction;
@@ -61,6 +62,10 @@ namespace Models
         }
         public Banque(string nomBanque)
         {
+            if (nomBanque is null)
+            {
+                throw new NullReferenceException("Nom de banque est NULL.");
+            }
             _NomBanque = nomBanque;
             _Comptes = new Dictionary<string, Compte>();
         }
